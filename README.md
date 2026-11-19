@@ -29,7 +29,7 @@ All screenshots use the made-up demo data from `seed/demo-seed.json` and the fak
 
 *All months: a chart and a table with in, out and left per month.*
 
-![The "Read bank file" window after reading an ING statement: 14 payments found, totals match the statement, 5 not sorted yet](docs/screenshots/import-review.png)
+![The "Read bank file" window after reading an ING statement: 14 payments found, totals match the statement, 6 not sorted yet](docs/screenshots/import-review.png)
 
 *Reading a bank file: the app checks the totals against the statement before you add the payments.*
 

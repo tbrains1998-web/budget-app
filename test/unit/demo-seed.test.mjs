@@ -103,14 +103,14 @@ test('income: salary plus benefit-style income, with a one-time extra in one mon
 
 test('payee ids and normalAmounts keys: every payment has a payeeId; keys are <side>:<payeeId>', () => {
   for (const t of state.transactions) assert.match(t.payeeId, /^p_[0-9a-f]{16}$/, t.id);
-  const uitkering = state.transactions.filter((t) => t.name === 'Uitkering');
-  assert.equal(new Set(uitkering.map((t) => t.payeeId)).size, 1, 'one payee');
-  assert.notEqual(uitkering[0].payeeId, util.payeeId('Uitkering'), 'made from the bank name, not the renamed one');
+  const benefits = state.transactions.filter((t) => t.name === 'Benefits');
+  assert.equal(new Set(benefits.map((t) => t.payeeId)).size, 1, 'one payee');
+  assert.notEqual(benefits[0].payeeId, util.payeeId('Benefits'), 'made from the bank name, not the renamed one');
   for (const [key, cents] of Object.entries(state.normalAmounts)) {
     assert.match(key, /^(in|uit):p_[0-9a-f]{16}$/);
     assert.ok(cents > 0, 'a positive magnitude');
   }
-  assert.deepEqual(Object.keys(state.normalAmounts), [`in:${uitkering[0].payeeId}`]);
+  assert.deepEqual(Object.keys(state.normalAmounts), [`in:${benefits[0].payeeId}`]);
   assert.equal(state.settings.privacySalt, null);
   assert.deepEqual(state.settings.privateTokenHashes, []);
 });
