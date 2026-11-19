@@ -16,6 +16,23 @@ account, and the app shows per month what came in, what went out, and how much y
 The screens are in English. The bank files it reads are Dutch, so payment types and shop names from the bank
 stay as the bank wrote them.
 
+## What it looks like
+
+All screenshots use the made-up demo data from `seed/demo-seed.json` and the fake test statement in
+`test/fixtures/`.
+
+![Month screen for June 2026 with five tiles, a colour bar, the savings card, "What really happened" and all payments sorted by colour](docs/screenshots/month.png)
+
+*One month: what came in, what went out, how much you can save, and every payment by category.*
+
+![All months screen with a bar chart per month, a dashed savings goal line and a table of money in, out and left](docs/screenshots/all-months.png)
+
+*All months: a chart and a table with in, out and left per month.*
+
+![The "Read bank file" window after reading an ING statement: 14 payments found, totals match the statement, 5 not sorted yet](docs/screenshots/import-review.png)
+
+*Reading a bank file: the app checks the totals against the statement before you add the payments.*
+
 ## What you need
 
 - To **use** it: any modern browser (Edge, Chrome, Firefox, LibreWolf).
