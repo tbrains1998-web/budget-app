@@ -1,0 +1,1184 @@
+[
+ {
+  "width": 594.96,
+  "height": 841.92,
+  "items": [
+   {
+    "str": "Afschrift Betaalrekening",
+    "x": 49.99,
+    "y": 52.5,
+    "w": 138.7,
+    "h": 12,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "T. Tester",
+    "x": 49.99,
+    "y": 108,
+    "w": 33.85,
+    "h": 9,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Teststraat 1",
+    "x": 49.99,
+    "y": 119.25,
+    "w": 46.52,
+    "h": 9,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "1234 AB Voorbeeldstad",
+    "x": 49.99,
+    "y": 130.5,
+    "w": 94.08,
+    "h": 9,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Periode",
+    "x": 330,
+    "y": 107.25,
+    "w": 27.56,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "01-03-2027 t/m 31-03-2027",
+    "x": 409.99,
+    "y": 107.25,
+    "w": 97.34,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Rekeningnummer",
+    "x": 330,
+    "y": 120.75,
+    "w": 63.1,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "NL00 INGB 0000 0000 00",
+    "x": 409.99,
+    "y": 120.75,
+    "w": 92.01,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Beginsaldo (EUR)",
+    "x": 330,
+    "y": 157.5,
+    "w": 63.99,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Totaal bij (EUR)",
+    "x": 445,
+    "y": 157.5,
+    "w": 55.98,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "2.500,00",
+    "x": 330,
+    "y": 176.25,
+    "w": 38.92,
+    "h": 10,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "2.492,60",
+    "x": 445,
+    "y": 176.25,
+    "w": 38.92,
+    "h": 10,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Eindsaldo (EUR)",
+    "x": 330,
+    "y": 193.5,
+    "w": 59.54,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Totaal af (EUR)",
+    "x": 445,
+    "y": 193.5,
+    "w": 54.65,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "2.991,85",
+    "x": 330,
+    "y": 212.25,
+    "w": 38.92,
+    "h": 10,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "2.000,75",
+    "x": 445,
+    "y": 212.25,
+    "w": 38.92,
+    "h": 10,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Geboekt op",
+    "x": 49.99,
+    "y": 242.25,
+    "w": 43.98,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Naam / Omschrijving / Mededeling",
+    "x": 106.99,
+    "y": 242.25,
+    "w": 130.17,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Type",
+    "x": 368.99,
+    "y": 242.25,
+    "w": 18.07,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Bedrag (EUR)",
+    "x": 508.01,
+    "y": 242.25,
+    "w": 51.97,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "31-03-2027",
+    "x": 49.99,
+    "y": 259.5,
+    "w": 40.9,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Tom Tester",
+    "x": 106.99,
+    "y": 259.5,
+    "w": 41.91,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Omschrijving: Naar mijn rekening bij andere bank",
+    "x": 106.99,
+    "y": 269.25,
+    "w": 174.64,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "IBAN: NL00RABO0000000077",
+    "x": 106.99,
+    "y": 279,
+    "w": 109.34,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Valutadatum: 31-03-2027",
+    "x": 106.99,
+    "y": 289.5,
+    "w": 89.64,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Online bankieren",
+    "x": 368.99,
+    "y": 259.5,
+    "w": 60.45,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "-500,00",
+    "x": 532.86,
+    "y": 259.5,
+    "w": 27.12,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "30-03-2027",
+    "x": 49.99,
+    "y": 309,
+    "w": 40.9,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Belastingdienst",
+    "x": 106.99,
+    "y": 309,
+    "w": 59.53,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Omschrijving: Kinderopvangtoeslag maart 2027 (TESTER )",
+    "x": 106.99,
+    "y": 318.75,
+    "w": 209.74,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "IBAN: NL00TEST0000000005",
+    "x": 106.99,
+    "y": 329.25,
+    "w": 107.11,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Kenmerk: 0000000000000002",
+    "x": 106.99,
+    "y": 339,
+    "w": 107.58,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Valutadatum: 30-03-2027",
+    "x": 106.99,
+    "y": 348.75,
+    "w": 89.64,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Verzamelbetaling",
+    "x": 368.99,
+    "y": 309,
+    "w": 61.33,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "+97,00",
+    "x": 535.3,
+    "y": 309,
+    "w": 24.68,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "28-03-2027",
+    "x": 49.99,
+    "y": 369,
+    "w": 40.9,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "T TESTER",
+    "x": 106.99,
+    "y": 369,
+    "w": 38.64,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Omschrijving: Van eigen spaarpot",
+    "x": 106.99,
+    "y": 378.75,
+    "w": 119.39,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "IBAN: NL00ABNA0000000088",
+    "x": 106.99,
+    "y": 388.5,
+    "w": 108.45,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Valutadatum: 28-03-2027",
+    "x": 106.99,
+    "y": 399,
+    "w": 89.64,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Overschrijving",
+    "x": 368.99,
+    "y": 369,
+    "w": 50.65,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "+250,00",
+    "x": 530.85,
+    "y": 369,
+    "w": 29.12,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "27-03-2027",
+    "x": 49.99,
+    "y": 418.5,
+    "w": 40.9,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "HR T TESTER",
+    "x": 106.99,
+    "y": 418.5,
+    "w": 52.41,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Omschrijving: Sparen bij andere bank",
+    "x": 106.99,
+    "y": 428.25,
+    "w": 133.32,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "IBAN: NL00ABNA0000000088",
+    "x": 106.99,
+    "y": 438.75,
+    "w": 108.45,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Valutadatum: 27-03-2027",
+    "x": 106.99,
+    "y": 448.5,
+    "w": 89.64,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Online bankieren",
+    "x": 368.99,
+    "y": 418.5,
+    "w": 60.45,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "-100,00",
+    "x": 532.86,
+    "y": 418.5,
+    "w": 27.12,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "25-03-2027",
+    "x": 49.99,
+    "y": 468,
+    "w": 40.9,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Werkgever Voorbeeld BV",
+    "x": 106.99,
+    "y": 468,
+    "w": 94.79,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Omschrijving: Salaris maart 2027 T. Tester",
+    "x": 106.99,
+    "y": 478.5,
+    "w": 149.89,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "IBAN: NL00TEST0000000002",
+    "x": 106.99,
+    "y": 488.25,
+    "w": 107.11,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Kenmerk: SAL-2027-03",
+    "x": 106.99,
+    "y": 498,
+    "w": 83.55,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Valutadatum: 25-03-2027",
+    "x": 106.99,
+    "y": 507.75,
+    "w": 89.64,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Overschrijving",
+    "x": 368.99,
+    "y": 468,
+    "w": 50.65,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "+2.145,60",
+    "x": 524.18,
+    "y": 468,
+    "w": 35.79,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "22-03-2027",
+    "x": 49.99,
+    "y": 528,
+    "w": 40.9,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Energiebedrijf Test BV",
+    "x": 106.99,
+    "y": 528,
+    "w": 85.15,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Omschrijving: Termijnbedrag maart 2027 levering Voorbeeldstad",
+    "x": 106.99,
+    "y": 537.75,
+    "w": 227.38,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "IBAN: NL00TEST0000000006",
+    "x": 106.99,
+    "y": 547.5,
+    "w": 107.11,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Kenmerk: 0000112233448",
+    "x": 106.99,
+    "y": 558,
+    "w": 93.64,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Machtiging ID: ENE-000456",
+    "x": 106.99,
+    "y": 567.75,
+    "w": 99.1,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Incassant ID: NL00ZZZ111111111111",
+    "x": 106.99,
+    "y": 577.5,
+    "w": 129.47,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Doorlopende incasso",
+    "x": 106.99,
+    "y": 588,
+    "w": 75.11,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Valutadatum: 22-03-2027",
+    "x": 106.99,
+    "y": 597.75,
+    "w": 89.64,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Incasso",
+    "x": 368.99,
+    "y": 528,
+    "w": 27.55,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "-97,00",
+    "x": 537.3,
+    "y": 528,
+    "w": 22.67,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "20-03-2027",
+    "x": 49.99,
+    "y": 617.25,
+    "w": 40.9,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Zorgverzekeraar Test NV",
+    "x": 106.99,
+    "y": 617.25,
+    "w": 93.61,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Omschrijving: Premie maart 2027 Tester T.",
+    "x": 106.99,
+    "y": 627.75,
+    "w": 150.78,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "IBAN: NL00TEST0000000001",
+    "x": 106.99,
+    "y": 637.5,
+    "w": 107.11,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Kenmerk: 2027030000001",
+    "x": 106.99,
+    "y": 647.25,
+    "w": 94.24,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Valutadatum: 20-03-2027",
+    "x": 106.99,
+    "y": 657.75,
+    "w": 89.64,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Incasso",
+    "x": 368.99,
+    "y": 617.25,
+    "w": 27.55,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "-134,85",
+    "x": 532.86,
+    "y": 617.25,
+    "w": 27.12,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Dit product valt onder het depositogarantiestelsel. Meer informatie vindt u in het informatieblad depositogarantiestelsel.",
+    "x": 49.99,
+    "y": 802.5,
+    "w": 340.82,
+    "h": 6.49,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "ING Bank N.V., statutair gevestigd te Amsterdam, Handelsregister nr. 00000000. TESTBESTAND MET NEPGEGEVENS.",
+    "x": 49.99,
+    "y": 811.5,
+    "w": 348.11,
+    "h": 6.49,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Pagina 1 van 2",
+    "x": 516.94,
+    "y": 802.5,
+    "w": 43.33,
+    "h": 6.49,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "A-PAYPS01",
+    "x": 525.86,
+    "y": 811.5,
+    "w": 34.42,
+    "h": 6.49,
+    "fontName": "g_d0_f2",
+    "bold": false
+   }
+  ]
+ },
+ {
+  "width": 594.96,
+  "height": 841.92,
+  "items": [
+   {
+    "str": "Rekeningnummer",
+    "x": 330,
+    "y": 47.25,
+    "w": 63.1,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "NL00 INGB 0000 0000 00",
+    "x": 409.99,
+    "y": 47.25,
+    "w": 92.01,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Periode",
+    "x": 330,
+    "y": 60.75,
+    "w": 27.56,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "01-03-2027 t/m 31-03-2027",
+    "x": 409.99,
+    "y": 60.75,
+    "w": 97.34,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Geboekt op",
+    "x": 49.99,
+    "y": 97.5,
+    "w": 43.98,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Naam / Omschrijving / Mededeling",
+    "x": 106.99,
+    "y": 97.5,
+    "w": 130.17,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Type",
+    "x": 368.99,
+    "y": 97.5,
+    "w": 18.07,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Bedrag (EUR)",
+    "x": 508.01,
+    "y": 97.5,
+    "w": 51.97,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "18-03-2027",
+    "x": 49.99,
+    "y": 114,
+    "w": 40.9,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Webwinkel Test",
+    "x": 106.99,
+    "y": 114,
+    "w": 59.24,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Omschrijving: Bestelling bezorgen 1234AB Voorbeeldstad",
+    "x": 106.99,
+    "y": 124.5,
+    "w": 204.88,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "IBAN: NL00TEST0000000004",
+    "x": 106.99,
+    "y": 134.25,
+    "w": 107.11,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Kenmerk: 18-03-2027 20:11 0050001112223399",
+    "x": 106.99,
+    "y": 144,
+    "w": 171.14,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Valutadatum: 18-03-2027",
+    "x": 106.99,
+    "y": 154.5,
+    "w": 89.64,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "iDEAL",
+    "x": 368.99,
+    "y": 114,
+    "w": 22.66,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "-49,95",
+    "x": 537.3,
+    "y": 114,
+    "w": 22.67,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "15-03-2027",
+    "x": 49.99,
+    "y": 174,
+    "w": 40.9,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Gemeente Voorbeeldstad",
+    "x": 106.99,
+    "y": 174,
+    "w": 95.82,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Omschrijving: Afvalstoffenheffing 2027 Teststraat 1 A",
+    "x": 106.99,
+    "y": 183.75,
+    "w": 186.22,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "IBAN: NL00TEST0000000019",
+    "x": 106.99,
+    "y": 194.25,
+    "w": 107.11,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Kenmerk: AFV-2027-01",
+    "x": 106.99,
+    "y": 204,
+    "w": 83.1,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Valutadatum: 15-03-2027",
+    "x": 106.99,
+    "y": 213.75,
+    "w": 89.64,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Incasso",
+    "x": 368.99,
+    "y": 174,
+    "w": 27.55,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "-31,50",
+    "x": 537.3,
+    "y": 174,
+    "w": 22.67,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "12-03-2027",
+    "x": 49.99,
+    "y": 234,
+    "w": 40.9,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "ApotheekDeLinde NLD",
+    "x": 106.99,
+    "y": 234,
+    "w": 86.62,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Pasvolgnr: 003 12-03-2027 10:12",
+    "x": 106.99,
+    "y": 243.75,
+    "w": 118.68,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Transactie: A00093 Term: XX000000",
+    "x": 106.99,
+    "y": 253.5,
+    "w": 130.22,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Valutadatum: 12-03-2027",
+    "x": 106.99,
+    "y": 264,
+    "w": 89.64,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Betaalautomaat",
+    "x": 368.99,
+    "y": 234,
+    "w": 56,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "-12,45",
+    "x": 537.3,
+    "y": 234,
+    "w": 22.67,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "10-03-2027",
+    "x": 49.99,
+    "y": 283.5,
+    "w": 40.9,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Webwinkel Test",
+    "x": 106.99,
+    "y": 283.5,
+    "w": 59.24,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Omschrijving: XQZ743QK0RLRHFYX0",
+    "x": 106.99,
+    "y": 293.25,
+    "w": 138.18,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "IBAN: NL00TEST0000000004",
+    "x": 106.99,
+    "y": 303.75,
+    "w": 107.11,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Valutadatum: 10-03-2027",
+    "x": 106.99,
+    "y": 313.5,
+    "w": 89.64,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Online bankieren",
+    "x": 368.99,
+    "y": 283.5,
+    "w": 60.45,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "-25,00",
+    "x": 537.3,
+    "y": 283.5,
+    "w": 22.67,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "02-03-2027",
+    "x": 49.99,
+    "y": 333,
+    "w": 40.9,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Huisbaas BV",
+    "x": 106.99,
+    "y": 333,
+    "w": 48.88,
+    "h": 7.99,
+    "fontName": "g_d0_f1",
+    "bold": true
+   },
+   {
+    "str": "Omschrijving: Huur maart 2027 Teststraat 1A",
+    "x": 106.99,
+    "y": 343.5,
+    "w": 159.37,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "IBAN: NL00TEST0123456789",
+    "x": 106.99,
+    "y": 353.25,
+    "w": 107.11,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Kenmerk: HUUR-2027-03",
+    "x": 106.99,
+    "y": 363,
+    "w": 91.53,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Valutadatum: 02-03-2027",
+    "x": 106.99,
+    "y": 372.75,
+    "w": 89.64,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Overschrijving",
+    "x": 368.99,
+    "y": 333,
+    "w": 50.65,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "-1.050,00",
+    "x": 526.2,
+    "y": 333,
+    "w": 33.78,
+    "h": 7.99,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Dit product valt onder het depositogarantiestelsel. Meer informatie vindt u in het informatieblad depositogarantiestelsel.",
+    "x": 49.99,
+    "y": 802.5,
+    "w": 340.82,
+    "h": 6.49,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "ING Bank N.V., statutair gevestigd te Amsterdam, Handelsregister nr. 00000000. TESTBESTAND MET NEPGEGEVENS.",
+    "x": 49.99,
+    "y": 811.5,
+    "w": 348.11,
+    "h": 6.49,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "Pagina 2 van 2",
+    "x": 516.94,
+    "y": 802.5,
+    "w": 43.33,
+    "h": 6.49,
+    "fontName": "g_d0_f2",
+    "bold": false
+   },
+   {
+    "str": "A-PAYPS01",
+    "x": 525.86,
+    "y": 811.5,
+    "w": 34.42,
+    "h": 6.49,
+    "fontName": "g_d0_f2",
+    "bold": false
+   }
+  ]
+ }
+]

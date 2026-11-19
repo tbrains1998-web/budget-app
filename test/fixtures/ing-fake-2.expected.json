@@ -1,0 +1,192 @@
+{
+  "statement": {
+    "periodFrom": "2026-11-01",
+    "periodTo": "2026-11-30",
+    "startBalance": 71358,
+    "endBalance": 847896,
+    "totalIn": 1503710,
+    "totalOut": 727172
+  },
+  "rows": [
+    {
+      "date": "2026-11-30",
+      "rawName": "Naar Oranje spaarrekening X12345678",
+      "amount": -250000,
+      "type": "Online bankieren"
+    },
+    {
+      "date": "2026-11-29",
+      "rawName": "Huisbaas BV",
+      "amount": -105000,
+      "type": "Overschrijving"
+    },
+    {
+      "date": "2026-11-28",
+      "rawName": "Kosten ING Go",
+      "amount": -295,
+      "type": "Diversen"
+    },
+    {
+      "date": "2026-11-27",
+      "rawName": "Webwinkel Test",
+      "amount": -124900,
+      "type": "iDEAL"
+    },
+    {
+      "date": "2026-11-26",
+      "rawName": "Notaris Test BV",
+      "amount": 1050000,
+      "type": "Overschrijving"
+    },
+    {
+      "date": "2026-11-25",
+      "rawName": "Werkgever Voorbeeld BV",
+      "amount": 214560,
+      "type": "Overschrijving"
+    },
+    {
+      "date": "2026-11-24",
+      "rawName": "Geldautomaat TESTDORP",
+      "amount": -10000,
+      "type": "Geldautomaat"
+    },
+    {
+      "date": "2026-11-23",
+      "rawName": "SUPERMARKT 1234 TESTDORP",
+      "amount": -6341,
+      "type": "Betaalautomaat"
+    },
+    {
+      "date": "2026-11-22",
+      "rawName": "Energiebedrijf Test BV",
+      "amount": -9700,
+      "type": "Incasso"
+    },
+    {
+      "date": "2026-11-21",
+      "rawName": "J. Jansen",
+      "amount": 4500,
+      "type": "Online bankieren"
+    },
+    {
+      "date": "2026-11-20",
+      "rawName": "Belastingdienst",
+      "amount": 123400,
+      "type": "Verzamelbetaling"
+    },
+    {
+      "date": "2026-11-19",
+      "rawName": "Garage Test BV",
+      "amount": -38950,
+      "type": "Acceptgiro"
+    },
+    {
+      "date": "2026-11-18",
+      "rawName": "Telecom Test BV",
+      "amount": -2750,
+      "type": "Incasso"
+    },
+    {
+      "date": "2026-11-17",
+      "rawName": "DROGIST TEST 0042 TESTDORP",
+      "amount": -1879,
+      "type": "Betaalautomaat"
+    },
+    {
+      "date": "2026-11-15",
+      "rawName": "Van Oranje spaarrekening X12345679",
+      "amount": 50000,
+      "type": "Online bankieren"
+    },
+    {
+      "date": "2026-11-14",
+      "rawName": "SUPERMARKT 1234 TESTDORP",
+      "amount": -8715,
+      "type": "Betaalautomaat"
+    },
+    {
+      "date": "2026-11-13",
+      "rawName": "Zorgverzekeraar Test NV",
+      "amount": -13485,
+      "type": "Incasso"
+    },
+    {
+      "date": "2026-11-12",
+      "rawName": "Geldautomaat TESTDORP",
+      "amount": -5000,
+      "type": "Geldautomaat"
+    },
+    {
+      "date": "2026-11-11",
+      "rawName": "Gemeente Testdorp",
+      "amount": -4820,
+      "type": "Incasso"
+    },
+    {
+      "date": "2026-11-09",
+      "rawName": "K. Bakker",
+      "amount": -7500,
+      "type": "Telefonisch bankieren"
+    },
+    {
+      "date": "2026-11-08",
+      "rawName": "Bakkerij Test",
+      "amount": -735,
+      "type": "Betaalautomaat"
+    },
+    {
+      "date": "2026-11-07",
+      "rawName": "Webwinkel Test",
+      "amount": -2495,
+      "type": "iDEAL"
+    },
+    {
+      "date": "2026-11-06",
+      "rawName": "SUPERMARKT 1234 TESTDORP",
+      "amount": -5562,
+      "type": "Betaalautomaat"
+    },
+    {
+      "date": "2026-11-05",
+      "rawName": "Bibliotheek Test",
+      "amount": -450,
+      "type": "Incasso"
+    },
+    {
+      "date": "2026-11-04",
+      "rawName": "Café De Gouden Test",
+      "amount": -1280,
+      "type": "Betaalautomaat"
+    },
+    {
+      "date": "2026-11-03",
+      "rawName": "Waterbedrijf Test",
+      "amount": -2180,
+      "type": "Incasso"
+    },
+    {
+      "date": "2026-11-03",
+      "rawName": "Uitkeringsinstantie Test",
+      "amount": 61250,
+      "type": "Overschrijving"
+    },
+    {
+      "date": "2026-11-02",
+      "rawName": "Stichting Goede Doelen Test",
+      "amount": -1000,
+      "type": "Incasso"
+    },
+    {
+      "date": "2026-11-01",
+      "rawName": "Tankstation Test TESTDORP",
+      "amount": -6135,
+      "type": "Betaalautomaat"
+    },
+    {
+      "date": "2026-11-01",
+      "rawName": "Kinderopvang Test BV",
+      "amount": -118000,
+      "type": "Incasso"
+    }
+  ]
+}

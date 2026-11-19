@@ -1,0 +1,16 @@
+{
+  "name": "budget-nl",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simple offline household budget in one HTML file. Reads Dutch ING bank statements (PDF and CSV).",
+  "license": "MIT",
+  "author": "tbrains1998-web",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "node build/build.mjs",
+    "build:demo": "node build/build.mjs --seed seed/demo-seed.json --out dist/Budget-demo.html",
+    "test": "node --test \"test/unit/*.test.mjs\""
+  }
+}

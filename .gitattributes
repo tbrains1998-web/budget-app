@@ -1,0 +1,10 @@
+# Same files on every PC, whatever core.autocrlf says: text is stored and checked out with LF,
+# Windows scripts with CRLF, and files that are hashed or compared byte for byte are never touched.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.vbs text eol=crlf
+*.pdf binary
+vendor/** -text
+test/fixtures/** -text

@@ -1,0 +1,596 @@
+/* Extras: All months chart + table, savings-goal bar, alert badges, banners,
+   settings dialog and print styles. Own classes are prefixed "x-"; colours come from the
+   theme tokens in styles.css (light + dark). */
+
+/* ---------- All months: chart ---------- */
+
+.x-chart {
+  position: relative;
+  margin: 4px 0;
+  contain: inline-size; /* a wide (scrolling) chart must not widen the card or the page */
+}
+
+.x-chart-scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.x-chart-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.x-axis {
+  fill: currentColor;
+  fill-opacity: 0.65;
+  font-size: 11px;
+}
+
+.x-month {
+  fill-opacity: 0.9;
+  font-weight: 600;
+}
+
+.x-grid {
+  stroke: currentColor;
+  stroke-opacity: 0.12;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.x-zero-line {
+  stroke: currentColor;
+  stroke-opacity: 0.45;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.x-goal-line {
+  stroke: var(--cat-over);
+  stroke-width: 2;
+  stroke-dasharray: 6 4;
+  pointer-events: none;
+}
+
+.x-group {
+  cursor: pointer;
+  outline: none;
+}
+
+.x-hit {
+  fill: transparent;
+}
+
+.x-group:hover .x-hit,
+.x-group:focus-visible .x-hit {
+  fill: currentColor;
+  fill-opacity: 0.06;
+}
+
+.x-group:focus-visible .x-hit {
+  stroke: var(--focus);
+  stroke-width: 2;
+}
+
+.x-in {
+  fill: var(--cat-inkomen);
+  fill-opacity: 0.45;
+}
+
+.x-left {
+  fill: var(--cat-over);
+}
+
+.x-short {
+  fill: var(--neg);
+}
+
+/* A month the bank has not booked yet: greyed, never a red shortfall. */
+.x-pending .x-bar {
+  fill-opacity: 0.35;
+}
+
+.x-pending .x-short {
+  fill: var(--text-muted);
+}
+
+.x-pending .x-month {
+  font-style: italic;
+}
+
+.x-tip {
+  position: absolute;
+  top: 4px;
+  z-index: 2;
+  min-width: 190px;
+  max-width: 260px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--shadow-pop);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  pointer-events: none;
+}
+
+.x-tip-title {
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.x-tip-note {
+  margin: -2px 0 4px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.x-tip-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.x-tip-key {
+  flex: none;
+  width: 12px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--c);
+}
+
+.x-tip-in .x-tip-key {
+  opacity: 0.45;
+}
+
+.x-tip-label {
+  flex: 1;
+  color: var(--text-muted);
+}
+
+.x-tip-row strong {
+  white-space: nowrap;
+}
+
+.x-tip-sub {
+  padding-left: 12px;
+  font-size: 0.78rem;
+}
+
+/* ---------- All months: legend + table ---------- */
+
+.x-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 10px 0 16px;
+  padding: 0;
+  font-size: 0.875rem;
+  list-style: none;
+}
+
+.x-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.x-key {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--c);
+}
+
+.x-key-in {
+  opacity: 0.45;
+}
+
+.x-key-pending {
+  border: 1px dashed var(--c);
+  background: transparent;
+}
+
+.x-key-line {
+  width: 16px;
+  height: 0;
+  border-top: 2px dashed var(--c);
+  border-radius: 0;
+  background: none;
+}
+
+.x-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.x-table th {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border-strong);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.x-table td {
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.x-table th:first-child,
+.x-table td:first-child {
+  padding-left: 0;
+}
+
+.x-table th:last-child,
+.x-table td:last-child {
+  padding-right: 0;
+}
+
+.x-table .x-num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.x-pos {
+  color: var(--save-text);
+}
+
+.x-pending-num,
+.x-pending-row .x-num {
+  color: var(--text-muted);
+}
+
+.x-pending-label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.x-neg {
+  color: var(--neg);
+}
+
+.x-month-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.x-month-link:hover {
+  text-decoration-color: currentColor;
+}
+
+@media (max-width: 480px) {
+  .x-table {
+    font-size: 0.875rem;
+  }
+
+  .x-table td,
+  .x-table th {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
+
+/* ---------- Month screen: "Higher than normal" + savings goal ---------- */
+
+.x-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--neg) 14%, transparent);
+  color: var(--neg);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.group.x-alert .gtotal {
+  color: var(--neg);
+}
+
+.x-goal {
+  display: grid;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.x-goal-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  font-size: 0.9rem;
+}
+
+.x-goal-text {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.x-goal-reached .x-goal-text {
+  color: var(--save-text);
+}
+
+.x-goal-short .x-goal-text {
+  color: var(--neg);
+}
+
+.x-goal-track {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--cat-over) 18%, transparent);
+}
+
+.x-goal-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--cat-over);
+}
+
+
+/* ---------- Banners ---------- */
+
+.x-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+}
+
+/* ---------- Settings dialog ---------- */
+
+.x-settings {
+  display: grid;
+  gap: 20px;
+}
+
+.x-set h3 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+}
+
+.x-hint {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+}
+
+.x-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.x-field .input {
+  flex: 1;
+  min-width: 0;
+}
+
+.x-field #x-goal-input {
+  flex: 0 1 9rem;
+}
+
+.x-prefix {
+  font-weight: 700;
+}
+
+.x-saved {
+  color: var(--save-text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.x-error {
+  margin: 6px 0 0;
+  color: var(--neg);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.x-rules {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.x-rules li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.x-rules .x-empty {
+  border-style: dashed;
+  font-size: 0.85rem;
+}
+
+.x-rule-text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.x-rules .btn {
+  flex: none;
+}
+
+.x-rule-buttons {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.x-rules .x-rule-editing {
+  display: block;
+  border-color: var(--accent);
+}
+
+.x-rule-edit {
+  display: grid;
+  gap: 4px;
+  font-size: 0.9rem;
+}
+
+.x-rule-when {
+  display: block;
+}
+
+.x-rule-edit .pop-section {
+  margin-top: 8px;
+}
+
+.x-rule-rename {
+  margin: 10px 0 0;
+}
+
+.x-rule-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.x-wipe {
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.x-wipe .btn {
+  margin-top: 10px;
+}
+
+/* ---------- Print: the current view on white paper, without controls ---------- */
+
+@media print {
+  @page {
+    margin: 12mm;
+  }
+
+  /* Light theme tokens, also when the screen is in dark mode; text black. The top bar stays for its
+     month title: its buttons are hidden with all other .btn. */
+  :root:root {
+    color-scheme: light;
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #f6f7f9;
+    --surface-hover: #ffffff;
+    --border: #e4e7ec;
+    --border-strong: #d0d5dd;
+    --text: #000000;
+    --text-muted: #444b57;
+    --accent-text: #1d4ed8;
+    --pos: #15803d;
+    --neg: #b91c1c;
+    --save: #16a34a;
+    --save-text: #15803d;
+    --warn-bg: #fffbeb;
+    --warn-border: #f5c25b;
+    --warn-text: #78350f;
+    --error-bg: #fef2f2;
+    --error-border: #f19999;
+    --error-text: #7f1d1d;
+    --info-bg: #eff6ff;
+    --info-border: #a8c6fa;
+    --info-text: #1e3a8a;
+    --shadow: none;
+    --cat-inkomen: #15803d;
+    --cat-huur: #7c3aed;
+    --cat-zorg: #0e7490;
+    --cat-vast: #2563eb;
+    --cat-dagelijks: #ea580c;
+    --cat-eenmalig: #db2777;
+    --cat-sparen: #98a2b3;
+    --cat-onbekend: #9ca3af;
+    --cat-over: #16a34a;
+  }
+
+  html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html,
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  #banners,
+  #menu-root,
+  #dialog-root,
+  #toast-root,
+  .no-print,
+  .btn,
+  .link-btn,
+  .inline-prompt,
+  .drop-overlay,
+  .dropzone,
+  .x-tip {
+    display: none !important;
+  }
+
+  .app {
+    max-width: none;
+    padding: 0;
+  }
+
+  main {
+    padding-bottom: 0;
+  }
+
+  .card,
+  .tile,
+  .group,
+  .x-table tr,
+  .x-goal {
+    break-inside: avoid;
+  }
+
+  .x-chart-scroll {
+    overflow: visible;
+  }
+
+  .x-chart-svg {
+    width: 100% !important;
+  }
+
+  .x-month-link {
+    text-decoration: none;
+  }
+
+  .edit-text {
+    text-decoration: none;
+  }
+}

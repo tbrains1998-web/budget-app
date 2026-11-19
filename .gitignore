@@ -1,0 +1,30 @@
+# build output and scratch space
+/dist/
+/.tmp/
+node_modules/
+*.log
+.cache/
+.DS_Store
+Thumbs.db
+
+# never commit real bank data or backups made from it: every PDF, CSV and JSON file is ignored, whatever its name,
+# except the project's own made-up ones below (a new JSON file for the project must be added here)
+*.pdf
+*.csv
+*.json
+!/package.json
+!/seed/demo-seed.json
+!/test/fixtures/*.pdf
+!/test/fixtures/*.csv
+!/test/fixtures/*.json
+/private/
+
+# programs and archives (build output, not source)
+*.exe
+*.zip
+
+# local editor and machine settings
+.vscode/
+.idea/
+*.local.json
+.env

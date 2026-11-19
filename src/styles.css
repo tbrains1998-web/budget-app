@@ -1,0 +1,1760 @@
+/* Budget app: design tokens, shared building blocks (cards, buttons, dialogs, toasts, banners, pills)
+   and the month screen. Other modules only use these classes; their own styles live in extras.css. */
+
+/* ---------- Tokens ---------- */
+
+:root {
+  color-scheme: light;
+  --font: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bg: #f3f4f6;
+  --surface: #ffffff;
+  --surface-2: #f6f7f9;
+  --surface-hover: #f0f2f5;
+  --border: #e4e7ec;
+  --border-strong: #d0d5dd;
+  --text: #111827;
+  --text-muted: #5f6673;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-text: #1d4ed8;
+  --on-accent: #ffffff;
+  --focus: #2563eb;
+  --pos: #15773a; /* money in: ≥ 4.5:1 on every row background, also hovered */
+  --neg: #b91c1c;
+  --danger: #dc2626;
+  --danger-hover: #b91c1c;
+  --save: #16a34a;
+  --save-text: #15803d;
+  --warn-bg: #fffbeb;
+  --warn-border: #f5c25b;
+  --warn-text: #78350f;
+  --error-bg: #fef2f2;
+  --error-border: #f19999;
+  --error-text: #7f1d1d;
+  --info-bg: #eff6ff;
+  --info-border: #a8c6fa;
+  --info-text: #1e3a8a;
+  --toast-bg: #1f2937;
+  --toast-text: #f9fafb;
+  --toast-action: #93c5fd;
+  --pill-border: #7c8492; /* ≥ 3:1 against every row background */
+  --backdrop: rgba(17, 24, 39, 0.45);
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow-pop: 0 12px 32px rgba(16, 24, 40, 0.18);
+  --radius: 12px;
+  --radius-sm: 8px;
+
+  --cat-inkomen: #15803d;
+  --cat-huur: #7c3aed;
+  --cat-zorg: #0e7490;
+  --cat-vast: #2563eb;
+  --cat-dagelijks: #ea580c;
+  --cat-eenmalig: #db2777;
+  --cat-sparen: #98a2b3;
+  --cat-onbekend: #9ca3af;
+  --cat-over: #16a34a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #0f1115;
+    --surface: #171a21;
+    --surface-2: #1c2029;
+    --surface-hover: #222733;
+    --border: #2a2f3a;
+    --border-strong: #3b4252;
+    --text: #e8eaee;
+    --text-muted: #a0a8b6;
+    --accent: #2563eb;
+    --accent-hover: #3b82f6;
+    --accent-text: #7fb0ff;
+    --on-accent: #ffffff;
+    --focus: #60a5fa;
+    --pos: #4ade80;
+    --neg: #f87171;
+    --danger: #dc2626;
+    --danger-hover: #ef4444;
+    --save: #4ade80;
+    --save-text: #4ade80;
+    --warn-bg: #2a2111;
+    --warn-border: #8a6416;
+    --warn-text: #fcd34d;
+    --error-bg: #2a1416;
+    --error-border: #8f2a2a;
+    --error-text: #fca5a5;
+    --info-bg: #121c30;
+    --info-border: #2d4d85;
+    --info-text: #bfdbfe;
+    --toast-bg: #e5e7eb;
+    --toast-text: #111827;
+    --toast-action: #1d4ed8;
+    --pill-border: #7b8494;
+    --backdrop: rgba(0, 0, 0, 0.6);
+    --shadow: none;
+    --shadow-pop: 0 12px 32px rgba(0, 0, 0, 0.55);
+
+    --cat-inkomen: #4ade80;
+    --cat-huur: #a78bfa;
+    --cat-zorg: #22d3ee;
+    --cat-vast: #60a5fa;
+    --cat-dagelijks: #fb923c;
+    --cat-eenmalig: #f472b6;
+    --cat-sparen: #6b7585;
+    --cat-onbekend: #6b7280;
+    --cat-over: #4ade80;
+  }
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.45 var(--font);
+  font-variant-numeric: tabular-nums;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* Room under the page for the toast stack, so it never hides the last rows (or a question under them). */
+main {
+  padding-bottom: var(--toast-space, 0px);
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.amount-in {
+  color: var(--pos);
+}
+
+.noscript {
+  margin: 32px 16px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 6px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--surface-hover);
+}
+
+.btn.primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn.primary:hover {
+  border-color: var(--accent-hover);
+  background: var(--accent-hover);
+}
+
+.btn.danger {
+  border-color: var(--danger);
+  background: var(--danger);
+  color: #ffffff;
+}
+
+.btn.danger:hover {
+  border-color: var(--danger-hover);
+  background: var(--danger-hover);
+}
+
+.btn.ghost {
+  border-color: transparent;
+  background: transparent;
+}
+
+.btn.ghost:hover {
+  background: var(--surface-hover);
+}
+
+.btn.ghost.danger {
+  color: var(--neg);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.btn:disabled:hover {
+  background: var(--surface);
+}
+
+.btn.ghost:disabled:hover {
+  background: transparent;
+}
+
+.btn.icon {
+  min-width: 36px;
+  padding: 6px;
+}
+
+.btn.small {
+  min-height: 30px;
+  padding: 3px 10px;
+  font-size: 0.875rem;
+}
+
+.btn svg {
+  flex: none;
+}
+
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent-text);
+  font: inherit;
+  font-size: 0.9rem;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+/* ---------- Cards, pills, dots, banners ---------- */
+
+.card {
+  min-width: 0;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.card > h2 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+.dot {
+  display: inline-block;
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c, var(--text-muted));
+}
+
+/* Kind pills are neutral (no category colours: those are only on dots, stripes and bars). */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 10px;
+  border: 1px solid var(--pill-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+button.pill {
+  cursor: pointer;
+}
+
+button.pill:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.pill.kind-telt-niet-mee {
+  border-style: dashed;
+}
+
+#banners {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+#banners:empty {
+  display: none;
+}
+
+.banner {
+  padding: 10px 14px;
+  border: 1px solid;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.banner.warn {
+  border-color: var(--warn-border);
+  background: var(--warn-bg);
+  color: var(--warn-text);
+}
+
+.banner.error {
+  border-color: var(--error-border);
+  background: var(--error-bg);
+  color: var(--error-text);
+}
+
+.banner.info {
+  border-color: var(--info-border);
+  background: var(--info-bg);
+  color: var(--info-text);
+}
+
+/* ---------- Forms (dialogs, inline editing) ---------- */
+
+.field {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 12px;
+}
+
+.field > span {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.input {
+  width: 100%;
+  min-height: 38px;
+  padding: 7px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.field-hint {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.field-hint-bad {
+  color: var(--text);
+}
+
+.input[aria-invalid="true"],
+.inline-input[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.form-error {
+  margin: 0 0 8px;
+  color: var(--neg);
+  font-weight: 600;
+}
+
+.choice-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.choice:hover {
+  background: var(--surface-hover);
+}
+
+.choice[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, var(--surface));
+  box-shadow: inset 0 0 0 1px var(--accent);
+  font-weight: 700;
+}
+
+/* ---------- Dialogs ---------- */
+
+/* While a dialog is open the page behind it does not scroll (Budget.ui.dialog sets these classes on <html>); a classic
+   scrollbar keeps its room, so nothing shifts sideways. Screen only: the print view is not affected. */
+@media screen {
+  html.dialog-open {
+    overflow: hidden;
+  }
+
+  html.dialog-open-gutter {
+    scrollbar-gutter: stable;
+  }
+}
+
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  /* The toast stack (bottom of the window) never lies over a dialog's buttons: --toast-space is its height. */
+  padding-bottom: max(16px, var(--toast-space, 0px));
+  background: var(--backdrop);
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 520px;
+  max-height: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-pop);
+}
+
+.dialog:focus,
+.dialog-body:focus {
+  outline: none; /* the box or the body of a dialog without buttons holds the focus when it opens (Budget.ui.dialog) */
+}
+
+.dialog > h2 {
+  margin: 0;
+  padding: 18px 20px 0;
+  font-size: 1.15rem;
+}
+
+.dialog-body {
+  min-height: 0;
+  padding: 12px 20px;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+}
+
+.dialog-body > p:first-child {
+  margin-top: 0;
+}
+
+.dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 8px 20px 18px;
+}
+
+/* A dialog with a ✕ in the top right corner (Budget.ui.dialog({closeButton: true})). */
+.dialog.has-x {
+  position: relative;
+}
+
+.dialog.has-x > h2 {
+  padding-right: 60px;
+}
+
+.dialog-x {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.dialog-x:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+/* ---------- Toasts ---------- */
+
+#toast-root {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  z-index: 60;
+  display: grid;
+  gap: 8px;
+  width: min(480px, calc(100vw - 32px));
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 4px 10px;
+  padding: 10px 8px 10px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--toast-bg);
+  color: var(--toast-text);
+  box-shadow: var(--shadow-pop);
+  pointer-events: auto;
+  animation: toast-in 0.15s ease-out;
+}
+
+.toast-msg {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.toast-action,
+.toast-close {
+  flex: none;
+  padding: 4px 8px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--toast-action);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.toast-close {
+  color: inherit;
+  font-size: 1.15rem;
+  line-height: 1;
+  opacity: 0.7;
+}
+
+.toast-action:hover,
+.toast-close:hover {
+  background: color-mix(in srgb, currentColor 14%, transparent);
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    animation: none;
+  }
+}
+
+/* ---------- Top bar + menu ---------- */
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-bottom: 16px;
+}
+
+.month-switch {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.month-switch h1 {
+  min-width: 10.5em;
+  margin: 0;
+  font-size: 1.35rem;
+  text-align: center;
+}
+
+/* Empty state and "All months": no arrows, so the title needs no room for them. */
+#prev-month[hidden] + h1 {
+  min-width: 0;
+  text-align: left;
+}
+
+.top-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu-wrap {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 45;
+  display: grid;
+  min-width: 210px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--shadow-pop);
+}
+
+.menu-item {
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-item:hover,
+.menu-item:focus-visible {
+  background: var(--surface-hover);
+}
+
+.menu-item:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* ---------- Month screen ---------- */
+
+#view-month {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+/* A month the bank has not booked yet: one calm note, no red. */
+.month-note {
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--text-muted);
+}
+
+/* Five tiles: one row on a wide window, 3 + 2 on a medium one, 2 + 2 + 1 (Left full width) on a narrow one. */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* Each tile is a button that opens its popup. No hover lift or transform (it made layouts jitter elsewhere):
+   only the border and background change. */
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  padding: 18px 16px 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.tile > span {
+  display: block;
+}
+
+.tile:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+.tile > .tile-more {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 2px;
+  margin-top: auto;
+  padding-top: 8px;
+  color: var(--accent-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tile:hover .tile-more,
+.tile:focus-visible .tile-more {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tile-chev {
+  flex: none;
+}
+
+.tile-oneoff {
+  --c: var(--cat-eenmalig);
+}
+
+.tile::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: var(--c, var(--border-strong));
+  content: "";
+}
+
+.tile-in {
+  --c: var(--cat-inkomen);
+}
+
+.tile-daily {
+  --c: var(--cat-dagelijks);
+}
+
+.tile-left {
+  --c: var(--cat-over);
+}
+
+.tile-left.short {
+  --c: var(--neg);
+}
+
+.tile-left.pending {
+  --c: var(--border-strong);
+}
+
+.tile-fixed::before {
+  background: linear-gradient(90deg, var(--cat-huur), var(--cat-zorg), var(--cat-vast));
+}
+
+.tile-label {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.tile-value {
+  margin-top: 4px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.tile-sub {
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.tile-value.pos {
+  color: var(--save-text);
+}
+
+.tile-value.neg {
+  color: var(--neg);
+}
+
+.tile-sub.tile-extra {
+  font-weight: 600;
+}
+
+/* Colour bar */
+
+.bar {
+  display: flex;
+  gap: 2px;
+  height: 16px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--surface-2);
+}
+
+.bar > span {
+  min-width: 3px;
+  background: var(--c);
+}
+
+.bar-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+  margin-bottom: 10px;
+}
+
+.bar-head h2 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.shortfall {
+  color: var(--neg);
+  font-weight: 700;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 12px 0 0;
+  padding: 0;
+  font-size: 0.875rem;
+  list-style: none;
+}
+
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend .muted {
+  font-size: 0.8rem;
+}
+
+/* Savings + recap cards */
+
+.cards-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  align-items: start;
+}
+
+.save-big {
+  margin: 0 0 14px;
+  font-size: 1.1rem;
+}
+
+.save-big strong {
+  color: var(--save-text);
+  font-size: 2.2rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.save-big.neg strong {
+  color: var(--neg);
+}
+
+.sum {
+  margin: 0;
+}
+
+.sum > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 0;
+}
+
+.sum dt {
+  min-width: 0;
+}
+
+.sum dd {
+  margin: 0;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sum > .total {
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  font-weight: 700;
+}
+
+.sum > .total dd {
+  color: var(--save-text);
+}
+
+.sum > .total.neg dd {
+  color: var(--neg);
+}
+
+.save-unknown {
+  margin: 10px 0 0;
+  font-size: 0.875rem;
+}
+
+#goal-bar:empty {
+  display: none;
+}
+
+.save-card .link-btn {
+  margin-top: 14px;
+}
+
+.recap {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.recap th {
+  padding: 6px 0;
+  font-weight: 400;
+  text-align: left;
+}
+
+.recap td {
+  padding: 6px 0 6px 12px;
+  font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.recap tr + tr > * {
+  border-top: 1px solid var(--border);
+}
+
+.recap .saldo > * {
+  font-weight: 700;
+}
+
+.recap-change {
+  margin: 12px 0 0;
+}
+
+.check {
+  margin: 6px 0 0;
+  font-weight: 600;
+}
+
+.check.ok {
+  color: var(--pos);
+}
+
+.check.bad {
+  padding: 8px 10px;
+  border: 1px solid var(--error-border);
+  border-radius: var(--radius-sm);
+  background: var(--error-bg);
+  color: var(--error-text);
+}
+
+/* Payment list */
+
+.list-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  margin-bottom: 4px;
+}
+
+.list-head h2 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.group {
+  padding: 10px 0 6px;
+  border-top: 1px solid var(--border);
+}
+
+.group.unknown {
+  margin: 8px -12px 10px;
+  padding: 10px 12px 8px;
+  border: 1px solid var(--warn-border);
+  border-radius: var(--radius-sm);
+  background: var(--warn-bg);
+}
+
+.group.unknown + .group {
+  border-top: 0;
+}
+
+.ghead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 8px;
+  padding: 2px 0 6px;
+}
+
+.gname {
+  font-weight: 700;
+}
+
+.gnote {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.group.unknown .gnote {
+  color: var(--warn-text);
+  font-weight: 600;
+}
+
+.badges:empty {
+  display: none;
+}
+
+.gtotal {
+  margin-left: auto;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Fixed kind/amount columns so pills and amounts line up from row to row. */
+.tx {
+  display: grid;
+  grid-template-areas: "date main kind amount";
+  grid-template-columns: 3.4rem minmax(0, 1fr) minmax(6.5rem, auto) minmax(6.5rem, auto);
+  align-items: center;
+  gap: 2px 12px;
+  margin: 0 -8px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.tx:hover {
+  background: var(--surface-hover);
+}
+
+.group.unknown .tx:hover {
+  background: color-mix(in srgb, var(--warn-border) 18%, transparent);
+}
+
+/* Rows that do not count this month: muted text in italics, never faded with opacity (stays ≥ 4.5:1). */
+.tx.faded .tx-name,
+.tx.faded .tx-amount,
+.tx.faded .tx-amount.amount-in {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.tx.is-open,
+.tx.is-asking {
+  background: var(--surface-hover);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.group.unknown .tx.is-open,
+.group.unknown .tx.is-asking {
+  background: color-mix(in srgb, var(--warn-border) 18%, transparent);
+}
+
+.tx-date {
+  grid-area: date;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.tx-main {
+  grid-area: main;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.tx > .pill {
+  grid-area: kind;
+  justify-self: start;
+}
+
+/* Names and amounts can be edited: a subtle dashed underline always, a pencil on hover/focus, 32 px hit areas. */
+.tx-name,
+.tx-amount {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: text;
+}
+
+.edit-text {
+  min-width: 0;
+  text-decoration: underline dashed;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.pencil {
+  flex: none;
+  color: var(--text-muted);
+  visibility: hidden;
+}
+
+.tx-name:hover .pencil,
+.tx-name:focus-visible .pencil,
+.tx-amount:hover .pencil,
+.tx-amount:focus-visible .pencil {
+  visibility: visible;
+}
+
+.tx-name:hover .edit-text,
+.tx-amount:hover .edit-text {
+  text-decoration-color: currentColor;
+}
+
+.tx-name {
+  max-width: 100%;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.tx-desc,
+.tx-note {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.tx-note {
+  font-style: italic;
+}
+
+/* The whole amount cell starts the amount edit. */
+.tx-amount {
+  grid-area: amount;
+  justify-self: stretch;
+  align-self: stretch;
+  justify-content: flex-end;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tx-amount.amount-in {
+  color: var(--pos);
+}
+
+.inline-input {
+  min-height: 32px;
+  padding: 3px 8px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.inline-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 35%, transparent);
+}
+
+.tx-main > .inline-input {
+  width: 100%;
+  font-weight: 600;
+}
+
+.tx > .inline-input {
+  grid-area: amount;
+  width: 8.5rem;
+  text-align: right;
+}
+
+.inline-prompt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 2px 0 8px calc(3.4rem + 12px);
+  padding: 8px 10px;
+  border: 1px solid var(--info-border);
+  border-radius: var(--radius-sm);
+  background: var(--info-bg);
+  color: var(--info-text);
+  font-size: 0.9rem;
+}
+
+.inline-prompt > span {
+  flex: 1 1 14rem;
+  overflow-wrap: anywhere;
+}
+
+.list-empty {
+  margin: 8px 0 4px;
+}
+
+/* Row popover */
+
+.popover {
+  position: absolute;
+  z-index: 40;
+  width: min(380px, calc(100vw - 32px));
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-pop);
+}
+
+.pop-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.pop-title {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.pop-sub {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.pop-section {
+  margin-top: 12px;
+}
+
+.pop-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.popover .inline-prompt {
+  margin: 10px 0 0;
+}
+
+.pop-foot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+/* Normal-month editor */
+
+.nm-group {
+  margin: 14px 0 0;
+}
+
+.nm-group h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+}
+
+.nm-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 8.5rem;
+  align-items: center;
+  gap: 2px 12px;
+  padding: 5px 0;
+  border-top: 1px solid var(--border);
+}
+
+.nm-name {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.nm-last {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.nm-row .input {
+  text-align: right;
+}
+
+.nm-daily {
+  margin: 16px 0 4px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
+
+/* Tile popups: what is behind a tile (read-only). Wide: a centred dialog; phone size: a full-width bottom sheet. */
+
+.dialog.tp {
+  max-width: 560px;
+}
+
+.dialog.tp .dialog-body {
+  padding: 10px 14px 18px;
+  overscroll-behavior: contain;
+}
+
+.tp-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tp-item + .tp-item {
+  border-top: 1px solid var(--border);
+}
+
+.tp-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  margin: 0;
+  padding: 7px 6px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.tp-row:hover {
+  background: var(--surface-hover);
+}
+
+.tp-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.tp-name-text {
+  font-weight: 600;
+}
+
+.tp-count {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.tp-amt {
+  flex: none;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tp-amt.pos {
+  color: var(--save-text);
+}
+
+.tp-amt.neg {
+  color: var(--neg);
+}
+
+.tp-chev {
+  flex: none;
+  color: var(--text-muted);
+}
+
+.tp-payee .tp-chev {
+  transition: transform 0.15s ease-out;
+}
+
+.tp-payee[aria-expanded="true"] .tp-chev {
+  transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tp-payee .tp-chev {
+    transition: none;
+  }
+}
+
+/* The colour dots of the "Left this month" lines: the tile colours (Fixed costs: its gradient). */
+.tp-line-income .dot {
+  background: var(--cat-inkomen);
+}
+
+.tp-line-fixed .dot {
+  background: linear-gradient(135deg, var(--cat-huur), var(--cat-zorg), var(--cat-vast));
+}
+
+.tp-line-daily .dot {
+  background: var(--cat-dagelijks);
+}
+
+.tp-line-oneoff .dot {
+  background: var(--cat-eenmalig);
+}
+
+.tp-line-unknown .dot {
+  background: var(--cat-onbekend);
+}
+
+.tp-pays {
+  margin: 0 0 8px;
+  /* right: 30px = a line's 6px padding + 14px chevron + 10px gap, so every amount ends in one column */
+  padding: 0 30px 0 26px;
+  list-style: none;
+}
+
+.tp-pay {
+  display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 10px;
+  padding: 3px 0;
+  font-size: 0.9rem;
+}
+
+.tp-date {
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.tp-pay-main {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.tp-desc {
+  margin-right: 6px;
+  color: var(--text-muted);
+}
+
+.tp-tag {
+  display: inline-block;
+  margin: 1px 4px 1px 0;
+  padding: 0 7px;
+  border: 1px solid var(--pill-border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.tp-pay .tp-amt {
+  font-weight: 400;
+}
+
+.tp-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+  padding: 10px 30px 0 6px; /* the amount ends under the lines' amounts (see .tp-pays) */
+  border-top: 2px solid var(--border-strong);
+  font-weight: 700;
+}
+
+.tp-total .tp-amt {
+  font-weight: 700;
+}
+
+.tp-empty {
+  margin: 6px 6px 8px;
+}
+
+.tp-notes {
+  margin: 12px 0 0;
+  padding: 0 6px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  list-style: none;
+  overflow-wrap: anywhere;
+}
+
+.tp-notes li + li {
+  margin-top: 4px;
+}
+
+@media (max-width: 560px) {
+  .dialog-backdrop.tp-backdrop {
+    align-items: flex-end;
+    padding: 24px 0 0;
+    padding-bottom: var(--toast-space, 0px);
+  }
+
+  .dialog.tp {
+    max-width: none;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+}
+
+/* Empty state */
+
+.empty {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  padding: 24px 0 48px;
+  text-align: center;
+}
+
+.dropzone {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  width: min(720px, 100%);
+  padding: 56px 24px;
+  border: 3px dashed var(--border-strong);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.dropzone:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 5%, var(--surface));
+}
+
+.dropzone svg {
+  color: var(--accent-text);
+}
+
+.dropzone-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.dropzone-sub {
+  max-width: 34em;
+  color: var(--text-muted);
+}
+
+.dropzone .btn {
+  margin-top: 6px;
+}
+
+.empty-note {
+  margin: 0;
+}
+
+/* Full-window drop overlay */
+
+.drop-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: color-mix(in srgb, var(--accent) 22%, var(--backdrop));
+  pointer-events: none;
+}
+
+.drop-box {
+  display: grid;
+  gap: 6px;
+  width: min(560px, 100%);
+  padding: 48px 24px;
+  border: 3px dashed var(--accent);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.drop-box span {
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* ---------- Narrow screens ---------- */
+
+@media (max-width: 860px) {
+  .cards-2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 1039px) {
+  .tiles {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .tile {
+    grid-column: span 2;
+  }
+
+  .tile-oneoff,
+  .tile-left {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 639px) {
+  .tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tile,
+  .tile-oneoff {
+    grid-column: auto;
+  }
+
+  .tile-left {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .month-switch {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .month-switch h1 {
+    min-width: 0;
+  }
+
+  .top-actions {
+    width: 100%;
+  }
+
+  .top-actions > .btn {
+    flex: 1 1 auto;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  .tile {
+    padding: 16px 12px 12px;
+  }
+
+  .tile-value {
+    font-size: 1.3rem;
+  }
+
+  .tx {
+    grid-template-areas:
+      "date main amount"
+      "date kind kind";
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+    gap: 2px 10px;
+  }
+
+  .inline-prompt {
+    margin-left: 0;
+  }
+
+  .save-big strong {
+    font-size: 1.9rem;
+  }
+
+  .dropzone {
+    padding: 40px 16px;
+  }
+
+  .drop-box {
+    font-size: 1.3rem;
+  }
+}
+
+/* "Add bank file" on a wide screen, "Read file" on a narrow one (read out in full either way). */
+.label-narrow {
+  display: none;
+}
+
+@media (max-width: 440px) {
+  .label-wide,
+  #btn-import svg {
+    display: none;
+  }
+
+  .label-narrow {
+    display: inline;
+  }
+
+  .top-actions > .btn:not(.icon) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

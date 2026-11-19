@@ -1,0 +1,96 @@
+{
+  "statement": {
+    "periodFrom": "2026-09-01",
+    "periodTo": "2026-09-30",
+    "startBalance": 84512,
+    "endBalance": 86715,
+    "totalIn": 165540,
+    "totalOut": 163337
+  },
+  "rows": [
+    {
+      "date": "2026-09-30",
+      "rawName": "Naar Oranje spaarrekening X12345678",
+      "amount": -15000,
+      "type": "Online bankieren"
+    },
+    {
+      "date": "2026-09-29",
+      "rawName": "Huisbaas BV",
+      "amount": -105000,
+      "type": "Overschrijving"
+    },
+    {
+      "date": "2026-09-28",
+      "rawName": "Kosten ING Go",
+      "amount": -295,
+      "type": "Diversen"
+    },
+    {
+      "date": "2026-09-27",
+      "rawName": "Zorgverzekeraar Test NV",
+      "amount": -13485,
+      "type": "Incasso"
+    },
+    {
+      "date": "2026-09-25",
+      "rawName": "Werkgever Voorbeeld BV",
+      "amount": 131240,
+      "type": "Overschrijving"
+    },
+    {
+      "date": "2026-09-24",
+      "rawName": "SUPERMARKT 1234 TESTDORP",
+      "amount": -4873,
+      "type": "Betaalautomaat"
+    },
+    {
+      "date": "2026-09-22",
+      "rawName": "J. Jansen",
+      "amount": 2500,
+      "type": "Online bankieren"
+    },
+    {
+      "date": "2026-09-20",
+      "rawName": "Webwinkel Test",
+      "amount": -5999,
+      "type": "iDEAL"
+    },
+    {
+      "date": "2026-09-18",
+      "rawName": "Energiebedrijf Test BV",
+      "amount": -9700,
+      "type": "Incasso"
+    },
+    {
+      "date": "2026-09-15",
+      "rawName": "Van Oranje spaarrekening X12345679",
+      "amount": 20000,
+      "type": "Online bankieren"
+    },
+    {
+      "date": "2026-09-12",
+      "rawName": "Telecom Test BV",
+      "amount": -2750,
+      "type": "Incasso"
+    },
+    {
+      "date": "2026-09-10",
+      "rawName": "Geldautomaat TESTDORP",
+      "amount": -5000,
+      "type": "Geldautomaat"
+    },
+    {
+      "date": "2026-09-05",
+      "rawName": "Belastingdienst",
+      "amount": 11800,
+      "type": "Verzamelbetaling"
+    },
+    {
+      "date": "2026-09-02",
+      "rawName": "DROGIST TEST 0042 TESTDORP",
+      "amount": -1235,
+      "type": "Betaalautomaat"
+    }
+  ]
+}

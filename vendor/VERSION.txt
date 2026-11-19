@@ -1,0 +1,10 @@
+pdfjs-dist 6.4.299 (Mozilla PDF.js, generic modern build), published to npm 2026-10-03T16:47:40Z
+Source: npm pack pdfjs-dist@6.4.299
+  tarball sha512 (npm dist.integrity): AVl138zALtfaAPvADulE0PZThbYzCBS79nL4pOSL/6Sm/4AH5A21BD9VHt97OlCuzJuCpmeZtAtkinisF4Vb1g==
+  tarball sha1   (npm dist.shasum):    4a46f5146ac6505564c1a5d472900be4df8bf628
+Files copied unchanged from package/build/ and package/:
+  pdf.min.mjs         sha256 57456c8e0c81e46be31174b499ef77f2b9f5ee46d04412ba627320a36755d4c2
+  pdf.worker.min.mjs  sha256 9536359f1b8367850d485731ca1d5e45c159a7b7a0912325e539937aa21ceb18
+  LICENSE             Apache License 2.0
+Not copied (not needed for text extraction): cmaps/, standard_fonts/, wasm/, iccs/, web/, sandbox, legacy build, source maps.
+How it is used inside one file:// HTML page: see the comments at the top of build/build.mjs.
